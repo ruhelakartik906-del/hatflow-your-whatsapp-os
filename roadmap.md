@@ -22,6 +22,6 @@
 
 ## Hero simplification
 
-- [ ] Remove the Live conversations dashboard from the hero
-- [ ] Center the hero heading and supporting content
-- [ ] Verify desktop and mobile layouts
+- [x] Remove the Live conversations dashboard from the hero
+- [x] Center the hero heading and supporting content
+- [x] Verify desktop and mobile layouts
