@@ -25,3 +25,10 @@
 - [x] Remove the Live conversations dashboard from the hero
 - [x] Center the hero heading and supporting content
 - [x] Verify desktop and mobile layouts
+
+## Partnership and final CTA balance
+
+- [x] Shorten and balance the partnership section
+- [x] Increase the UnknownHat Agency logo slightly
+- [x] Make the Talk to an Expert button clearly visible
+- [x] Verify desktop and mobile presentation
