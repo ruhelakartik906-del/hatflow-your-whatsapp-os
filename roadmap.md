@@ -24,4 +24,4 @@
 
 - [x] Remove the Live conversations dashboard from the hero
 - [x] Center the hero heading and supporting content
-- [ ] Verify desktop and mobile layouts
+- [x] Verify desktop and mobile layouts
