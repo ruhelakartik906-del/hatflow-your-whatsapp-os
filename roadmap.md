@@ -18,4 +18,4 @@
 - [x] Correct all section anchors and sticky-header offsets
 - [x] Add requested section CTAs
 - [x] Add Get Started and Talk to an Expert dialogs
-- [ ] Verify all links, forms, viewports, and browser errors
+- [x] Verify all links, forms, viewports, and browser errors
