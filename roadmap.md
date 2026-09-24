@@ -13,9 +13,9 @@
 
 ## Final interaction pass
 
-- [ ] Compact integration logos
-- [ ] Center desktop navigation and raise hero product panel
-- [ ] Correct all section anchors and sticky-header offsets
-- [ ] Add requested section CTAs
-- [ ] Add Get Started and Talk to an Expert dialogs
-- [ ] Verify all links, forms, viewports, and browser errors
+- [x] Compact integration logos
+- [x] Center desktop navigation and raise hero product panel
+- [x] Correct all section anchors and sticky-header offsets
+- [x] Add requested section CTAs
+- [x] Add Get Started and Talk to an Expert dialogs
+- [x] Verify all links, forms, viewports, and browser errors
