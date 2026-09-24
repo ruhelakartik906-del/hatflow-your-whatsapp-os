@@ -31,4 +31,4 @@
 - [x] Shorten and balance the partnership section
 - [x] Increase the UnknownHat Agency logo slightly
 - [x] Make the Talk to an Expert button clearly visible
-- [ ] Verify desktop and mobile presentation
+- [x] Verify desktop and mobile presentation
