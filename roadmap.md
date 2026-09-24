@@ -35,7 +35,7 @@
 
 ## Automation builder balance
 
-- [ ] Add clear visual steps to the left column
-- [ ] Rebalance the two-column layout
-- [ ] Scale and shorten the workflow canvas
-- [ ] Verify desktop and mobile layouts
+- [x] Add clear visual steps to the left column
+- [x] Rebalance the two-column layout
+- [x] Scale and shorten the workflow canvas
+- [x] Verify desktop and mobile layouts
