@@ -10,3 +10,12 @@
 - [x] Simplify the UnknownHat partnership and remove its process diagram
 - [x] Reduce the footer to working support and policy links
 - [x] Confirm one floating contact button and no horizontal overflow
+
+## Final interaction pass
+
+- [ ] Compact integration logos
+- [ ] Center desktop navigation and raise hero product panel
+- [ ] Correct all section anchors and sticky-header offsets
+- [ ] Add requested section CTAs
+- [ ] Add Get Started and Talk to an Expert dialogs
+- [ ] Verify all links, forms, viewports, and browser errors
