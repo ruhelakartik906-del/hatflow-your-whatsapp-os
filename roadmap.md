@@ -32,3 +32,10 @@
 - [x] Increase the UnknownHat Agency logo slightly
 - [x] Make the Talk to an Expert button clearly visible
 - [x] Verify desktop and mobile presentation
+
+## Automation builder balance
+
+- [ ] Add clear visual steps to the left column
+- [ ] Rebalance the two-column layout
+- [ ] Scale and shorten the workflow canvas
+- [ ] Verify desktop and mobile layouts
