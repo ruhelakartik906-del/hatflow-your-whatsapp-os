@@ -253,4 +253,4 @@ footer .footer-main{display:flex;grid-template-columns:none}.footer-legal{displa
 .partner-copy{max-width:560px}
 .final-cta>div:last-child>button:last-child{color:oklch(.978 .012 91);border-color:oklch(1 0 0/.55);background:oklch(1 0 0/.06)}
 .final-cta>div:last-child>button:last-child:hover{background:oklch(1 0 0/.12)}
-@media(max-width:700px){.partnership-heading{padding-top:68px;padding-bottom:12px}.partnership-heading>img{height:64px;transform:scale(2.35);margin-bottom:26px}.partnership{padding-top:20px;padding-bottom:68px;gap:32px}.founder-wrap,.partner-copy{max-width:none}.final-cta>div:last-child>button{width:100%}}
+@media(max-width:700px){.partnership-heading{padding-top:68px;padding-bottom:12px}.partnership-heading>img{height:64px;transform:scale(2.35);margin-bottom:26px}.partnership{grid-template-columns:minmax(0,1fr);padding-top:20px;padding-bottom:68px;gap:32px}.founder-wrap,.partner-copy{width:100%;max-width:none;justify-self:stretch}.partner-copy{grid-column:1}.final-cta>div:last-child>button{width:100%}}
