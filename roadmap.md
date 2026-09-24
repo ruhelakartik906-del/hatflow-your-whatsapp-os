@@ -19,3 +19,9 @@
 - [x] Add requested section CTAs
 - [x] Add Get Started and Talk to an Expert dialogs
 - [x] Verify all links, forms, viewports, and browser errors
+
+## Hero simplification
+
+- [ ] Remove the Live conversations dashboard from the hero
+- [ ] Center the hero heading and supporting content
+- [ ] Verify desktop and mobile layouts
