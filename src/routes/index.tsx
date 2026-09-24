@@ -1,12 +1,17 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import {
-  ArrowDown, ArrowRight, Bot, Boxes, Braces, CalendarCheck, Check, ChevronDown,
+  ArrowRight, Bot, Boxes, Braces, CalendarCheck, Check, ChevronDown,
   CircleCheck, Clock3, Contact, CreditCard, Filter, GitBranch, Headphones, HeartPulse,
   Inbox, LayoutDashboard, Menu, MessageCircle, MessagesSquare, PackageCheck, Plus,
   Radio, RefreshCw, Rocket, Search, Send, ShoppingBag, Sparkles, Target, TrendingUp,
   UserRound, UsersRound, WandSparkles, Webhook, X, Zap,
 } from "lucide-react";
+import {
+  siCalendly, siFacebook, siGooglecalendar, siGooglegemini, siGooglesheets,
+  siHubspot, siMake, siMeta, siN8n, siRazorpay, siShopify, siStripe, siTelegram,
+  siWhatsapp, siWoocommerce, siWordpress, siZapier, siZoho, siZoom,
+} from "simple-icons";
 
 import { Button } from "@/components/ui/button";
 import hatflowLogo from "@/assets/hatflow-logo.webp.asset.json";
@@ -39,14 +44,37 @@ const features = [
   [Webhook,"Webhooks & APIs","Connect Hatflow to your business systems.","Webhook active"],
 ] as const;
 
-const integrationGroups = {
-  Ecommerce: ["WooCommerce","Shopify","WordPress","Shiprocket"],
-  CRM: ["HubSpot","Zoho CRM","IndiaMART","Trade India","ExportersIndia","Google Contacts"],
-  Payments: ["Razorpay","Cashfree","Stripe"],
-  AI: ["Google Gemini","OpenAI"],
-  Automation: ["Google Sheets","Google Calendar","Calendly"],
-  Communication: ["WhatsApp Business","Facebook Lead Ads","Telegram","Meta","SMTP","Zoom"],
-} as const;
+type BrandIcon = { title: string; hex: string; path: string };
+type Integration = { name: string; logo?: BrandIcon; wordmark?: string; status: "Connected" | "Available" };
+
+const integrationGroups: Record<string, readonly Integration[]> = {
+  Ecommerce: [
+    {name:"WooCommerce",logo:siWoocommerce,status:"Available"},{name:"Shopify",logo:siShopify,status:"Connected"},
+    {name:"WordPress",logo:siWordpress,status:"Available"},{name:"Shiprocket",wordmark:"shiprocket",status:"Available"},
+  ],
+  CRM: [
+    {name:"HubSpot",logo:siHubspot,status:"Connected"},{name:"Zoho CRM",logo:siZoho,status:"Available"},
+    {name:"IndiaMART",wordmark:"IndiaMART",status:"Available"},{name:"TradeIndia",wordmark:"tradeindia",status:"Available"},
+    {name:"ExportersIndia",wordmark:"ExportersIndia",status:"Available"},{name:"Google Contacts",wordmark:"G",status:"Available"},
+  ],
+  Payments: [
+    {name:"Razorpay",logo:siRazorpay,status:"Connected"},{name:"Cashfree",wordmark:"cashfree",status:"Available"},
+    {name:"Stripe",logo:siStripe,status:"Available"},
+  ],
+  AI: [
+    {name:"Google Gemini",logo:siGooglegemini,status:"Connected"},{name:"OpenAI",wordmark:"OpenAI",status:"Available"},
+  ],
+  Automation: [
+    {name:"Google Sheets",logo:siGooglesheets,status:"Connected"},{name:"Google Calendar",logo:siGooglecalendar,status:"Available"},
+    {name:"Calendly",logo:siCalendly,status:"Available"},{name:"Make",logo:siMake,status:"Available"},
+    {name:"n8n",logo:siN8n,status:"Available"},{name:"Zapier",logo:siZapier,status:"Available"},
+  ],
+  Communication: [
+    {name:"WhatsApp Business",logo:siWhatsapp,status:"Connected"},{name:"Facebook Lead Ads",logo:siFacebook,status:"Available"},
+    {name:"Telegram",logo:siTelegram,status:"Available"},{name:"Meta",logo:siMeta,status:"Available"},
+    {name:"SMTP",wordmark:"SMTP",status:"Available"},{name:"Zoom",logo:siZoom,status:"Available"},
+  ],
+};
 
 const automationCases = [
   [ShoppingBag,"Ecommerce","Cart Created","Recovery Workflow","Customer Returns"],
@@ -98,6 +126,7 @@ const faqs = [
 
 function Logo({light=false}:{light?:boolean}) { return <img src={hatflowLogo.url} alt="HATFLOW" className={`h-10 w-auto object-contain ${light?"brightness-0 invert":""}`}/>; }
 function SectionTitle({eyebrow,title,copy,light=false}:{eyebrow:string;title:React.ReactNode;copy?:string;light?:boolean}) { return <div className="section-heading"><span className="eyebrow">{eyebrow}</span><h2 className={light?"text-ivory":""}>{title}</h2>{copy&&<p className={light?"text-ivory/65":"text-muted-foreground"}>{copy}</p>}</div>; }
+function BrandMark({item}:{item:Integration}) { return <div className={`brand-mark brand-${item.name.toLowerCase().replaceAll(" ","-")}`} aria-hidden="true">{item.logo?<svg viewBox="0 0 24 24" role="img" aria-label={`${item.name} logo`} style={{color:`#${item.logo.hex}`}}><path fill="currentColor" d={item.logo.path}/></svg>:<span>{item.wordmark}</span>}</div>; }
 
 function DashboardMockup() {
   const [tab,setTab]=useState<"Inbox"|"CRM"|"Analytics">("Inbox");
@@ -125,7 +154,7 @@ function Index(){
 
     <section className="section features-section" id="solutions"><SectionTitle eyebrow="A COMPLETE PRODUCT TOOLKIT" title="Everything You Need to Run WhatsApp Better." copy="Each capability is part of the same operating workspace — not a collection of disconnected tools."/><div className="feature-grid">{features.map(([Icon,title,copy,preview],i)=><article className="feature-card" key={title}><span className="feature-number">{String(i+1).padStart(2,"0")}</span><div className="feature-icon"><Icon/></div><h3>{title}</h3><p>{copy}</p><div className="feature-preview"><i/><span>{preview}</span><CircleCheck/></div><a href="#contact">Explore feature <ArrowRight/></a></article>)}</div></section>
 
-    <section className="section integrations-section" id="integrations"><div className="integration-copy"><SectionTitle eyebrow="24 INTEGRATIONS" title="Your Existing Tools. One Connected Workflow." copy="Connect Hatflow with the platforms currently available across commerce, CRM, payments, AI, automation and communication."/><Button asChild variant="outline"><a href="#contact">Explore All Integrations <ArrowRight/></a></Button></div><div className="integration-grid">{Object.entries(integrationGroups).map(([group,items],groupIndex)=><div className="integration-group" key={group}><span>{group}</span><div>{items.map((item,itemIndex)=><div className="integration-item" key={item}><i>{item.split(" ").map(w=>w[0]).join("").slice(0,2)}</i><b>{item}</b><em className={(groupIndex+itemIndex)%3===0?"connected":""}>{(groupIndex+itemIndex)%3===0?"Connected":"Connect"}</em></div>)}</div></div>)}</div></section>
+    <section className="section integrations-section" id="integrations"><div className="integration-copy"><SectionTitle eyebrow="27 INTEGRATIONS" title="Your Existing Tools. One Connected Workflow." copy="Hatflow connects to the tools you already use across commerce, CRM, payments, AI, automation and communication."/><Button asChild variant="outline"><a href="#contact">View All Integrations <ArrowRight/></a></Button></div><div className="integration-grid">{Object.entries(integrationGroups).map(([group,items])=><div className="integration-group" key={group}><span>{group}</span><div>{items.map(item=><article className="integration-item" key={item.name}><BrandMark item={item}/><b>{item.name}</b><small>{group}</small><em className={item.status==="Connected"?"connected":""}>{item.status}</em></article>)}</div></div>)}</div></section>
 
     <section className="section automation-section" id="automations"><div className="automation-copy"><SectionTitle eyebrow="VISUAL AUTOMATION BUILDER" light title={<>Build Powerful WhatsApp Automations.<br/><span className="gradient-text">Without Code.</span></>} copy="Combine customer triggers, decision conditions and business actions in one visual canvas."/><div className="builder-palette">{["Trigger","Conditions","Delay","Template Message","Text Message","Button Message","List Message","Media Message","CTA Message","Product Message","Ask Question","Update Columns"].map(x=><span key={x}>{x}</span>)}</div><Button asChild><a href="#pricing">Build Your First Flow <ArrowRight/></a></Button></div><div><div className="flow-builder"><div className="flow-toolbar"><span><i/><i/><i/></span><b>Intent routing workflow</b><em>LIVE</em></div><div className="flow-canvas"><div className="node trigger"><MessageCircle/><span><small>TRIGGER</small><b>New Message</b></span></div><div className="flow-line l1"/><div className="node ai"><Bot/><span><small>AI</small><b>Detect Intent</b></span></div><div className="flow-line l2"/><div className="branch-node"><GitBranch/></div><div className="flow-line branch"/>{([[ShoppingBag,"PRODUCT INQUIRY","Send Catalog","one"],[PackageCheck,"ORDER QUERY","Send Tracking","two"],[Target,"LEAD INQUIRY","Create CRM Lead","three"],[UsersRound,"SUPPORT","Assign Agent","four"],[RefreshCw,"ABANDONED CART","Recovery Message","five"]] as const).map(([Icon,label,action,pos])=><div className={`node branch-card ${pos}`} key={label}><Icon/><span><small>{label}</small><b>{action}</b></span></div>)}</div></div><div className="flow-templates"><b>Ready-to-use flow templates</b>{["Shopify — New Order Confirmation","Abandoned Cart","Contact Welcome","Abandoned Checkout","Order Confirmation","Review Request"].map(x=><span key={x}>{x}<ArrowRight/></span>)}</div></div></section>
 
@@ -145,11 +174,11 @@ function Index(){
 
     <section className="section feedback"><SectionTitle eyebrow="CUSTOMER FEEDBACK" title="What Businesses Say About Hatflow."/><div className="feedback-placeholder"><MessagesSquare/><div><h3>Verified customer stories are coming soon.</h3><p>Approved customer quotes and company details will appear here as they become available.</p></div><span>VERIFIED STORIES ONLY</span></div></section>
 
-    <section className="partnership-band"><div className="section partnership"><div className="founder-wrap"><img src={founderPhoto.url} alt="Founder of UnknownHat Agency at a technology summit"/><div className="founder-caption"><span>Technology Partner</span><b>UnknownHat Agency</b></div></div><div className="partner-copy"><img src={unknownHatLogo.url} alt="UnknownHat Agency"/><SectionTitle eyebrow="OUR PARTNERSHIP" light title="Hatflow × UnknownHat Agency" copy="Technology built by UnknownHat Agency."/><p>Hatflow is a product built and supported by UnknownHat Agency — combining WhatsApp infrastructure, automation, AI and digital product development.</p><div className="partner-path"><span>UnknownHat Agency</span><ArrowDown/><span>Product Development</span><ArrowDown/><span>Hatflow</span><ArrowDown/><span>WhatsApp Automation Platform</span><ArrowDown/><span>Business Operations</span></div><div className="partner-points">{["Product Development","Automation Expertise","Continuous Innovation","Dedicated Support"].map(x=><span key={x}><Check/>{x}</span>)}</div><Button asChild variant="outline"><a href="https://unknowhat.com" target="_blank" rel="noreferrer">Visit UnknownHat Agency <ArrowRight/></a></Button></div></div></section>
+    <section className="partnership-band"><div className="section partnership-heading"><img src={unknownHatLogo.url} alt="UnknownHat Agency"/><SectionTitle eyebrow="OUR PARTNERSHIP" light title="Hatflow × UnknownHat Agency" copy="Technology built by UnknownHat Agency."/></div><div className="section partnership"><div className="founder-wrap"><img src={founderPhoto.url} alt="Founder of UnknownHat Agency at a technology summit"/><div className="founder-caption"><span>Technology Partner</span><b>UnknownHat Agency</b></div></div><div className="partner-copy"><p>Hatflow is a product built and supported by UnknownHat Agency — combining WhatsApp infrastructure, automation, AI and digital product development.</p><div className="partner-points">{["Product Development","Automation Expertise","Continuous Innovation","Dedicated Support"].map(x=><span key={x}><Check/>{x}</span>)}</div><Button asChild variant="outline"><a href="https://unknowhat.com" target="_blank" rel="noreferrer">Visit UnknownHat Agency <ArrowRight/></a></Button></div></div></section>
 
     <section className="section faq-section" id="faq"><SectionTitle eyebrow="FAQ" title="Frequently Asked Questions" copy="Straight answers about setup, integrations, pricing and how Hatflow works."/><div className="faq-list">{faqs.map(([q,a])=><details key={q}><summary>{q}<ChevronDown/></summary><p>{a}</p></details>)}</div></section>
     <section className="final-cta" id="contact"><div className="cta-grid"/><span className="eyebrow">START WITH HATFLOW</span><h2>Ready to Turn WhatsApp Into Your Business Operating System?</h2><p>Automate conversations. Capture leads. Manage customers. Connect your tools.</p><div><Button asChild size="lg"><a href="https://hatflow.in">Get Started Now <ArrowRight/></a></Button><Button asChild size="lg" variant="outline"><a href="https://unknowhat.com" target="_blank" rel="noreferrer">Talk to an Expert</a></Button></div></section>
-    <footer><div className="footer-main"><div className="footer-brand"><Logo light/><p>WhatsApp Business. Automated.</p><span>A product by <a href="https://unknowhat.com">UnknownHat Agency</a></span></div>{[["Product","Features","CRM","Automation","AI Agent","Pricing"],["Solutions","Ecommerce","Lead Generation","Customer Support","Education","Healthcare"],["Integrations","Shopify","WooCommerce","CRM","Payments","AI"],["Resources","Documentation","FAQs","Blog","Help Center"],["Company","About","UnknownHat Agency","Contact","Privacy Policy","Terms & Conditions"]].map(([heading,...links])=><div className="footer-links" key={heading}><b>{heading}</b>{links.map(x=><a href={x==="UnknownHat Agency"?"https://unknowhat.com":"#"} key={x}>{x}</a>)}</div>)}</div><div className="footer-bottom"><span>© 2026 HATFLOW. All rights reserved.</span><span>Built by UnknownHat Agency</span></div></footer>
+    <footer><div className="footer-main"><div className="footer-brand"><Logo light/><p>WhatsApp Business. Automated.</p><span>A product by <a href="https://unknowhat.com" target="_blank" rel="noreferrer">UnknownHat Agency</a></span></div><nav className="footer-legal" aria-label="Support and legal"><a href="#contact">Support</a><a href="/privacy-policy">Privacy Policy</a><a href="/terms-and-conditions">Terms &amp; Conditions</a><a href="/disclaimer">Disclaimer</a><a href="/refund-return-policy">Refund &amp; Return Policy</a></nav></div><div className="footer-bottom"><span>© 2026 Hatflow. All rights reserved.</span></div></footer>
     <a href="#contact" className="floating-contact" aria-label="Talk to HATFLOW"><MessageCircle/></a>
   </main>;
 }
