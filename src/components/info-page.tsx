@@ -1,0 +1,60 @@
+import { Link } from "@tanstack/react-router";
+import { ArrowLeft, ArrowRight, Check } from "lucide-react";
+
+import { Button } from "@/components/ui/button";
+import hatflowLogo from "@/assets/hatflow-logo.webp.asset.json";
+
+export const WHATSAPP_URL = "https://wa.me/917055481738?text=Hello%2C%20UnknownHat%20Team!";
+
+export type InfoBlock = { title: string; copy: string; points?: readonly string[]; tag?: string };
+export type InfoSection = { eyebrow: string; title: string; copy?: string; blocks: readonly InfoBlock[] };
+
+export function InfoPage({ eyebrow, title, intro, sections }: { eyebrow: string; title: string; intro: string; sections: readonly InfoSection[] }) {
+  return (
+    <main className="info-page">
+      <header className="info-nav">
+        <Link to="/" aria-label="HATFLOW home"><img src={hatflowLogo.url} alt="HATFLOW" /></Link>
+        <nav>
+          <Link to="/features" activeProps={{ className: "active" }}>Features</Link>
+          <Link to="/solutions" activeProps={{ className: "active" }}>Solutions</Link>
+          <Link to="/integrations" activeProps={{ className: "active" }}>Integrations</Link>
+          <Link to="/crm" activeProps={{ className: "active" }}>CRM</Link>
+        </nav>
+        <Button asChild variant="outline" size="sm"><Link to="/"><ArrowLeft />Home</Link></Button>
+      </header>
+      <section className="info-hero">
+        <span className="eyebrow">{eyebrow}</span>
+        <h1>{title}</h1>
+        <p>{intro}</p>
+        <div className="info-actions">
+          <Button asChild size="lg"><a href="https://app.hatflow.in/signup">Get Started <ArrowRight /></a></Button>
+          <Button asChild size="lg" variant="outline"><a href={WHATSAPP_URL} target="_blank" rel="noreferrer">Talk to an Expert</a></Button>
+        </div>
+      </section>
+      {sections.map((s) => (
+        <section className="info-section" key={s.title}>
+          <div className="info-head"><span className="eyebrow">{s.eyebrow}</span><h2>{s.title}</h2>{s.copy && <p>{s.copy}</p>}</div>
+          <div className="info-grid">
+            {s.blocks.map((b) => (
+              <article key={b.title}>
+                {b.tag && <small>{b.tag}</small>}
+                <h3>{b.title}</h3>
+                <p>{b.copy}</p>
+                {b.points && <ul>{b.points.map((p) => <li key={p}><Check />{p}</li>)}</ul>}
+              </article>
+            ))}
+          </div>
+        </section>
+      ))}
+      <section className="info-cta">
+        <h2>Ready to put WhatsApp to work?</h2>
+        <p>Start with Hatflow today or talk to the UnknownHat team about your setup.</p>
+        <div className="info-actions">
+          <Button asChild size="lg"><a href="https://app.hatflow.in/signup">Get Started Now <ArrowRight /></a></Button>
+          <Button asChild size="lg" variant="outline"><a href={WHATSAPP_URL} target="_blank" rel="noreferrer">Talk to an Expert</a></Button>
+        </div>
+      </section>
+      <footer className="info-footer">© 2026 Hatflow. All rights reserved. · A product by UnknownHat Agency</footer>
+    </main>
+  );
+}
