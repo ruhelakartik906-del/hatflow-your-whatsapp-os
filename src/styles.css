@@ -347,3 +347,11 @@ html{scroll-behavior:smooth;text-rendering:optimizeLegibility;-webkit-font-smoot
  .legal-page article p,.legal-page li{font-size:16px;line-height:1.7}
 }
  @media(max-width:700px){.logic-step svg.lucide-arrow-right,.logic-main>svg{transform:rotate(90deg)}.feature-preview span,.float-card span,.float-card b{font-size:11px}}
+
+/* ---- Subtle scroll reveal (hand-tuned, no template look) ---- */
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .7s cubic-bezier(.22,.61,.36,1),transform .7s cubic-bezier(.22,.61,.36,1);transition-delay:var(--rd,0s);will-change:opacity,transform}
+.reveal.reveal-in{opacity:1;transform:none}
+.reveal-left{transform:translateX(-22px)}
+.reveal-right{transform:translateX(22px)}
+.reveal-scale{transform:translateY(10px) scale(.985)}
+@media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}

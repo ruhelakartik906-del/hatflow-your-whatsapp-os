@@ -11,7 +11,7 @@ export type InfoSection = { eyebrow: string; title: string; copy?: string; block
 export function InfoPage({ eyebrow, title, intro, sections }: { eyebrow: string; title: string; intro: string; sections: readonly InfoSection[] }) {
   return (
     <main className="info-page">
-      <section className="info-hero">
+      <section className="info-hero reveal">
         <span className="eyebrow">{eyebrow}</span>
         <h1>{title}</h1>
         <p>{intro}</p>
@@ -21,7 +21,7 @@ export function InfoPage({ eyebrow, title, intro, sections }: { eyebrow: string;
         </div>
       </section>
       {sections.map((s) => (
-        <section className="info-section" key={s.title}>
+        <section className="info-section reveal" key={s.title}>
           <div className="info-head"><span className="eyebrow">{s.eyebrow}</span><h2>{s.title}</h2>{s.copy && <p>{s.copy}</p>}</div>
           <div className="info-grid">
             {s.blocks.map((b) => (
@@ -35,7 +35,7 @@ export function InfoPage({ eyebrow, title, intro, sections }: { eyebrow: string;
           </div>
         </section>
       ))}
-      <section className="info-cta">
+      <section className="info-cta reveal">
         <h2>Ready to put WhatsApp to work?</h2>
         <p>Start with Hatflow today or talk to the UnknownHat team about your setup.</p>
         <div className="info-actions">
