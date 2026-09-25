@@ -3,7 +3,7 @@ import { useEffect, useRef, useState, type FormEvent } from "react";
 import {
   ArrowRight, Bot, Boxes, Braces, CalendarCheck, Check, ChevronDown,
   CircleCheck, Clock3, Contact, CreditCard, Filter, GitBranch, Headphones, HeartPulse,
-  Inbox, LayoutDashboard, Menu, MessageCircle, MessagesSquare, PackageCheck, Plus,
+  Inbox, LayoutDashboard, MessageCircle, MessagesSquare, PackageCheck, Plus,
   Radio, RefreshCw, Rocket, Search, Send, ShoppingBag, Sparkles, Target, TrendingUp,
   UserRound, UsersRound, WandSparkles, Webhook, X, Zap,
 } from "lucide-react";
@@ -15,7 +15,6 @@ import {
 
 import { Button } from "@/components/ui/button";
 import { PartnershipSection, SiteFooter } from "@/components/site-sections";
-import hatflowLogo from "@/assets/hatflow-logo.webp.asset.json";
 import unknownHatLogo from "@/assets/unknownhat-logo.png.asset.json";
 
 const WHATSAPP_URL="https://wa.me/917055481738?text=Hello%2C%20UnknownHat%20Team!";
@@ -136,7 +135,6 @@ const faqs = [
   ["Can I upgrade my plan later?","Yes. You can discuss changing your plan as your workflows, team and integration needs grow."],
 ] as const;
 
-function Logo({light=false}:{light?:boolean}) { return <img src={hatflowLogo.url} alt="HATFLOW" className={`h-10 w-auto object-contain ${light?"brightness-0 invert":""}`}/>; }
 function SectionTitle({eyebrow,title,copy,light=false}:{eyebrow:string;title:React.ReactNode;copy?:string;light?:boolean}) { return <div className="section-heading"><span className="eyebrow">{eyebrow}</span><h2 className={light?"text-ivory":""}>{title}</h2>{copy&&<p className={light?"text-ivory/65":"text-muted-foreground"}>{copy}</p>}</div>; }
 function BrandMark({item}:{item:Integration}) { return <div className={`brand-mark brand-${item.name.toLowerCase().replaceAll(" ","-")}`} aria-hidden="true">{item.logo?<svg viewBox="0 0 24 24" role="img" aria-label={`${item.name} logo`} fill={`#${item.logo.hex}`}><path d={item.logo.path}/></svg>:<span>{item.wordmark}</span>}</div>; }
 
@@ -188,11 +186,9 @@ function InquiryModal({kind,onClose}:{kind:InquiryKind;onClose:()=>void}) {
 }
 
 function Index(){
-  const [menuOpen,setMenuOpen]=useState(false); const [annual,setAnnual]=useState(false); const [inquiry,setInquiry]=useState<InquiryKind|null>(null); const plans=annual?planData.yearly:planData.monthly;
+  const [annual,setAnnual]=useState(false); const [inquiry,setInquiry]=useState<InquiryKind|null>(null); const plans=annual?planData.yearly:planData.monthly;
   const closeInquiry=()=>setInquiry(null);
   return <main className="overflow-hidden bg-background text-foreground">
-    <header className="site-nav"><a className="nav-brand" href="#top" aria-label="HATFLOW home"><Logo/><span>by UnknownHat Agency</span></a><nav className="desktop-nav">{[["Product","product"],["Solutions","solutions"],["Integrations","integrations"],["Automations","automations"],["Pricing","pricing"],["Resources","faq"]].map(([label,id])=><a key={id} href={`#${id}`}>{label}</a>)}</nav><div className="nav-actions"><a href="https://app.hatflow.in/login" className="login-link">Login</a><Button size="sm" asChild><a href="https://app.hatflow.in/signup">Get Started <ArrowRight/></a></Button></div><Button variant="ghost" size="icon" className="menu-button" aria-label="Toggle menu" onClick={()=>setMenuOpen(!menuOpen)}>{menuOpen?<X/>:<Menu/>}</Button>{menuOpen&&<div className="mobile-nav">{[["Product","product"],["Solutions","solutions"],["Integrations","integrations"],["Automations","automations"],["Pricing","pricing"],["Resources","faq"]].map(([label,id])=><a key={id} href={`#${id}`} onClick={()=>setMenuOpen(false)}>{label}</a>)}<Button asChild><a href="https://app.hatflow.in/signup" onClick={()=>setMenuOpen(false)}>Get Started <ArrowRight/></a></Button></div>}</header>
-
     <section className="hero hero-centered" id="top"><div className="hero-grid"/><div className="hero-copy"><div className="brand-kicker"><MessageCircle/>WHATSAPP BUSINESS AUTOMATION PLATFORM</div><h1>Turn WhatsApp Into<br/>Your <span>Business Operating System.</span></h1><p>Connect WhatsApp, manage conversations, capture leads, automate customer journeys and connect your business tools — all from one platform.</p><div className="hero-actions"><Button size="lg" asChild><a href="https://app.hatflow.in/signup">Get Started <ArrowRight/></a></Button><Button variant="outline" size="lg" onClick={()=>window.open(WHATSAPP_URL,"_blank","noopener")}>Talk to an Expert</Button></div><div className="trust-row">{["Official WhatsApp API","No-Code Automation","AI-Powered Conversations","Built-in CRM","Team Inbox"].map(x=><span key={x}><Check/>{x}</span>)}</div><a className="powered-by" href="https://unknowhat.com" target="_blank" rel="noreferrer"><img src={unknownHatLogo.url} alt="UnknownHat Agency"/><span>Powered by <b>UnknownHat Agency</b></span></a></div></section>
 
     <section className="logic-section section" id="how-it-works"><SectionTitle eyebrow="HOW HATFLOW WORKS" title={<>One Message In.<br/><span className="gradient-text">The Right Business Action Out.</span></>} copy="Hatflow connects every customer message to the right automation, system and next step."/><div className="logic-map"><div className="logic-main">{([[MessageCircle,"Customer Message"],[Zap,"Hatflow"],[Bot,"AI / Automation"],[Braces,"CRM / Integration"],[Rocket,"Business Action"]] as const).map(([Icon,label],i)=><div className="logic-step" key={label}><div><Icon size={21}/></div><span>{label}</span>{i<4&&<ArrowRight/>}</div>)}</div><div className="logic-branches">{([[Target,"Create Lead"],[ShoppingBag,"Send Product"],[PackageCheck,"Track Order"],[RefreshCw,"Recover Cart"],[Clock3,"Schedule Follow-up"],[UsersRound,"Assign Agent"]] as const).map(([Icon,label])=><div key={label}><span><Icon size={17}/></span>{label}</div>)}</div></div></section>

@@ -1,9 +1,7 @@
-import { Link } from "@tanstack/react-router";
-import { ArrowLeft, ArrowRight, Check } from "lucide-react";
+import { ArrowRight, Check } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import { PartnershipSection, SiteFooter } from "@/components/site-sections";
-import hatflowLogo from "@/assets/hatflow-logo.webp.asset.json";
 
 export const WHATSAPP_URL = "https://wa.me/917055481738?text=Hello%2C%20UnknownHat%20Team!";
 
@@ -13,16 +11,6 @@ export type InfoSection = { eyebrow: string; title: string; copy?: string; block
 export function InfoPage({ eyebrow, title, intro, sections }: { eyebrow: string; title: string; intro: string; sections: readonly InfoSection[] }) {
   return (
     <main className="info-page">
-      <header className="info-nav">
-        <Link to="/" aria-label="HATFLOW home"><img src={hatflowLogo.url} alt="HATFLOW" /></Link>
-        <nav>
-          <Link to="/features" activeProps={{ className: "active" }}>Features</Link>
-          <Link to="/solutions" activeProps={{ className: "active" }}>Solutions</Link>
-          <Link to="/integrations" activeProps={{ className: "active" }}>Integrations</Link>
-          <Link to="/crm" activeProps={{ className: "active" }}>CRM</Link>
-        </nav>
-        <Button asChild variant="outline" size="sm"><Link to="/"><ArrowLeft />Home</Link></Button>
-      </header>
       <section className="info-hero">
         <span className="eyebrow">{eyebrow}</span>
         <h1>{title}</h1>
