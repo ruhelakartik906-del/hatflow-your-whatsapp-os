@@ -299,3 +299,12 @@ footer .footer-main{display:flex;grid-template-columns:none}.footer-legal{displa
 .legal-page h2{margin-top:28px}.legal-page ul{list-style:disc;padding-left:22px;display:grid;gap:6px;margin-top:8px}
 @media(max-width:900px){.info-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.info-nav nav{display:none}}
 @media(max-width:600px){.info-grid{grid-template-columns:1fr}.info-hero{padding:64px 20px 40px}}
+/* Spacing + finishing touches */
+.info-cta{margin-bottom:96px}
+.final-cta{margin-bottom:0}
+.legal-page{padding-bottom:0}.legal-page>footer{margin:0 -30px}
+@media(max-width:700px){.info-cta{margin-bottom:64px}.legal-page>footer{margin:0 -22px}}
+.partnership-band,.faq-section,.pricing-section,.use-cases,.crm-section,.ai-section,.automation-section,.integrations-section,.features-section{content-visibility:auto;contain-intrinsic-size:auto 900px}
+a,button{-webkit-tap-highlight-color:transparent}
+:focus-visible{outline:2px solid var(--primary);outline-offset:3px;border-radius:8px}
+html{scroll-behavior:smooth;text-rendering:optimizeLegibility;-webkit-font-smoothing:antialiased}

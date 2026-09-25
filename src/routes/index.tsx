@@ -14,9 +14,9 @@ import {
 } from "simple-icons";
 
 import { Button } from "@/components/ui/button";
+import { PartnershipSection, SiteFooter } from "@/components/site-sections";
 import hatflowLogo from "@/assets/hatflow-logo.webp.asset.json";
 import unknownHatLogo from "@/assets/unknownhat-logo.png.asset.json";
-import founderPhoto from "@/assets/unknownhat-founder.png.asset.json";
 
 const WHATSAPP_URL="https://wa.me/917055481738?text=Hello%2C%20UnknownHat%20Team!";
 
@@ -219,11 +219,11 @@ function Index(){
 
     <section className="section feedback"><SectionTitle eyebrow="CUSTOMER FEEDBACK" title="What Businesses Say About Hatflow."/><div className="feedback-placeholder"><MessagesSquare/><div><h3>Verified customer stories are coming soon.</h3><p>Approved customer quotes and company details will appear here as they become available.</p></div><span>VERIFIED STORIES ONLY</span></div></section>
 
-    <section className="partnership-band"><div className="section partnership-heading"><img src={unknownHatLogo.url} alt="UnknownHat Agency"/><SectionTitle eyebrow="OUR PARTNERSHIP" light title="Hatflow × UnknownHat Agency" copy="Technology built by UnknownHat Agency."/></div><div className="section partnership"><div className="founder-wrap"><img src={founderPhoto.url} alt="Founder of UnknownHat Agency at a technology summit"/><div className="founder-caption"><span>Technology Partner</span><b>UnknownHat Agency</b></div></div><div className="partner-copy"><p>Hatflow is a product built and supported by UnknownHat Agency — combining WhatsApp infrastructure, automation, AI and digital product development.</p><div className="partner-points">{["Product Development","Automation Expertise","Continuous Innovation","Dedicated Support"].map(x=><span key={x}><Check/>{x}</span>)}</div><Button asChild variant="outline"><a href="https://unknowhat.com" target="_blank" rel="noreferrer">Visit UnknownHat Agency <ArrowRight/></a></Button></div></div></section>
+    <PartnershipSection/>
 
     <section className="section faq-section" id="faq"><SectionTitle eyebrow="FAQ" title="Frequently Asked Questions" copy="Straight answers about setup, integrations, pricing and how Hatflow works."/><div className="faq-list">{faqs.map(([q,a])=><details key={q}><summary>{q}<ChevronDown/></summary><p>{a}</p></details>)}</div></section>
     <section className="final-cta" id="contact"><div className="cta-grid"/><span className="eyebrow">START WITH HATFLOW</span><h2>Ready to Turn WhatsApp Into Your Business Operating System?</h2><p>Automate conversations. Capture leads. Manage customers. Connect your tools.</p><div><Button size="lg" asChild><a href="https://app.hatflow.in/signup">Get Started Now <ArrowRight/></a></Button><Button size="lg" variant="outline" onClick={()=>window.open(WHATSAPP_URL,"_blank","noopener")}>Talk to an Expert</Button></div></section>
-    <footer><div className="footer-main"><div className="footer-brand"><Logo light/><p>WhatsApp Business. Automated.</p><span>A product by <a href="https://unknowhat.com" target="_blank" rel="noreferrer">UnknownHat Agency</a></span></div><nav className="footer-legal" aria-label="Support and legal"><Link to="/support">Support</Link><Link to="/privacy-policy">Privacy Policy</Link><Link to="/terms-and-conditions">Terms &amp; Conditions</Link><Link to="/disclaimer">Disclaimer</Link><Link to="/refund-return-policy">Refund &amp; Return Policy</Link></nav></div><div className="footer-bottom"><span>© 2026 Hatflow. All rights reserved.</span></div></footer>
+    <SiteFooter/>
     <a className="floating-contact" aria-label="Chat with HATFLOW on WhatsApp" href="https://wa.me/917055481738?text=Hello%2C%20UnknownHat%20Team!" target="_blank" rel="noreferrer"><svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor" aria-hidden="true"><path d={siWhatsapp.path}/></svg></a>
     {inquiry&&<InquiryModal kind={inquiry} onClose={closeInquiry}/>} 
   </main>;

@@ -2,6 +2,7 @@ import { Link } from "@tanstack/react-router";
 import { ArrowLeft, ArrowRight, Check } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
+import { PartnershipSection, SiteFooter } from "@/components/site-sections";
 import hatflowLogo from "@/assets/hatflow-logo.webp.asset.json";
 
 export const WHATSAPP_URL = "https://wa.me/917055481738?text=Hello%2C%20UnknownHat%20Team!";
@@ -54,7 +55,8 @@ export function InfoPage({ eyebrow, title, intro, sections }: { eyebrow: string;
           <Button asChild size="lg" variant="outline"><a href={WHATSAPP_URL} target="_blank" rel="noreferrer">Talk to an Expert</a></Button>
         </div>
       </section>
-      <footer className="info-footer">© 2026 Hatflow. All rights reserved. · A product by UnknownHat Agency</footer>
+      <PartnershipSection />
+      <SiteFooter />
     </main>
   );
 }
