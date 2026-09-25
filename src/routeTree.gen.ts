@@ -10,9 +10,13 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as CrmRouteImport } from './routes/crm'
 import { Route as DisclaimerRouteImport } from './routes/disclaimer'
+import { Route as FeaturesRouteImport } from './routes/features'
+import { Route as IntegrationsRouteImport } from './routes/integrations'
 import { Route as PrivacyPolicyRouteImport } from './routes/privacy-policy'
 import { Route as RefundReturnPolicyRouteImport } from './routes/refund-return-policy'
+import { Route as SolutionsRouteImport } from './routes/solutions'
 import { Route as SupportRouteImport } from './routes/support'
 import { Route as TermsAndConditionsRouteImport } from './routes/terms-and-conditions'
 
@@ -21,9 +25,24 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const CrmRoute = CrmRouteImport.update({
+  id: '/crm',
+  path: '/crm',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const DisclaimerRoute = DisclaimerRouteImport.update({
   id: '/disclaimer',
   path: '/disclaimer',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FeaturesRoute = FeaturesRouteImport.update({
+  id: '/features',
+  path: '/features',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const IntegrationsRoute = IntegrationsRouteImport.update({
+  id: '/integrations',
+  path: '/integrations',
   getParentRoute: () => rootRouteImport,
 } as any)
 const PrivacyPolicyRoute = PrivacyPolicyRouteImport.update({
@@ -34,6 +53,11 @@ const PrivacyPolicyRoute = PrivacyPolicyRouteImport.update({
 const RefundReturnPolicyRoute = RefundReturnPolicyRouteImport.update({
   id: '/refund-return-policy',
   path: '/refund-return-policy',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SolutionsRoute = SolutionsRouteImport.update({
+  id: '/solutions',
+  path: '/solutions',
   getParentRoute: () => rootRouteImport,
 } as any)
 const SupportRoute = SupportRouteImport.update({
@@ -49,26 +73,38 @@ const TermsAndConditionsRoute = TermsAndConditionsRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/crm': typeof CrmRoute
   '/disclaimer': typeof DisclaimerRoute
+  '/features': typeof FeaturesRoute
+  '/integrations': typeof IntegrationsRoute
   '/privacy-policy': typeof PrivacyPolicyRoute
   '/refund-return-policy': typeof RefundReturnPolicyRoute
+  '/solutions': typeof SolutionsRoute
   '/support': typeof SupportRoute
   '/terms-and-conditions': typeof TermsAndConditionsRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/crm': typeof CrmRoute
   '/disclaimer': typeof DisclaimerRoute
+  '/features': typeof FeaturesRoute
+  '/integrations': typeof IntegrationsRoute
   '/privacy-policy': typeof PrivacyPolicyRoute
   '/refund-return-policy': typeof RefundReturnPolicyRoute
+  '/solutions': typeof SolutionsRoute
   '/support': typeof SupportRoute
   '/terms-and-conditions': typeof TermsAndConditionsRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/crm': typeof CrmRoute
   '/disclaimer': typeof DisclaimerRoute
+  '/features': typeof FeaturesRoute
+  '/integrations': typeof IntegrationsRoute
   '/privacy-policy': typeof PrivacyPolicyRoute
   '/refund-return-policy': typeof RefundReturnPolicyRoute
+  '/solutions': typeof SolutionsRoute
   '/support': typeof SupportRoute
   '/terms-and-conditions': typeof TermsAndConditionsRoute
 }
@@ -76,34 +112,50 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/crm'
     | '/disclaimer'
+    | '/features'
+    | '/integrations'
     | '/privacy-policy'
     | '/refund-return-policy'
+    | '/solutions'
     | '/support'
     | '/terms-and-conditions'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/crm'
     | '/disclaimer'
+    | '/features'
+    | '/integrations'
     | '/privacy-policy'
     | '/refund-return-policy'
+    | '/solutions'
     | '/support'
     | '/terms-and-conditions'
   id:
     | '__root__'
     | '/'
+    | '/crm'
     | '/disclaimer'
+    | '/features'
+    | '/integrations'
     | '/privacy-policy'
     | '/refund-return-policy'
+    | '/solutions'
     | '/support'
     | '/terms-and-conditions'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  CrmRoute: typeof CrmRoute
   DisclaimerRoute: typeof DisclaimerRoute
+  FeaturesRoute: typeof FeaturesRoute
+  IntegrationsRoute: typeof IntegrationsRoute
   PrivacyPolicyRoute: typeof PrivacyPolicyRoute
   RefundReturnPolicyRoute: typeof RefundReturnPolicyRoute
+  SolutionsRoute: typeof SolutionsRoute
   SupportRoute: typeof SupportRoute
   TermsAndConditionsRoute: typeof TermsAndConditionsRoute
 }
@@ -117,11 +169,32 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/crm': {
+      id: '/crm'
+      path: '/crm'
+      fullPath: '/crm'
+      preLoaderRoute: typeof CrmRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/disclaimer': {
       id: '/disclaimer'
       path: '/disclaimer'
       fullPath: '/disclaimer'
       preLoaderRoute: typeof DisclaimerRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/features': {
+      id: '/features'
+      path: '/features'
+      fullPath: '/features'
+      preLoaderRoute: typeof FeaturesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/integrations': {
+      id: '/integrations'
+      path: '/integrations'
+      fullPath: '/integrations'
+      preLoaderRoute: typeof IntegrationsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/privacy-policy': {
@@ -136,6 +209,13 @@ declare module '@tanstack/react-router' {
       path: '/refund-return-policy'
       fullPath: '/refund-return-policy'
       preLoaderRoute: typeof RefundReturnPolicyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/solutions': {
+      id: '/solutions'
+      path: '/solutions'
+      fullPath: '/solutions'
+      preLoaderRoute: typeof SolutionsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/support': {
@@ -157,9 +237,13 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  CrmRoute: CrmRoute,
   DisclaimerRoute: DisclaimerRoute,
+  FeaturesRoute: FeaturesRoute,
+  IntegrationsRoute: IntegrationsRoute,
   PrivacyPolicyRoute: PrivacyPolicyRoute,
   RefundReturnPolicyRoute: RefundReturnPolicyRoute,
+  SolutionsRoute: SolutionsRoute,
   SupportRoute: SupportRoute,
   TermsAndConditionsRoute: TermsAndConditionsRoute,
 }
