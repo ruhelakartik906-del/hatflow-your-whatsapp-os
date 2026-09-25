@@ -20,12 +20,22 @@ import founderPhoto from "@/assets/unknownhat-founder.png.asset.json";
 
 export const Route = createFileRoute("/")({
   head: () => ({ meta: [
-    { title: "HATFLOW | WhatsApp Business Automation Platform" },
-    { name: "description", content: "Connect WhatsApp, manage conversations, capture leads and automate customer journeys from one platform." },
-    { property: "og:title", content: "HATFLOW | WhatsApp Business Automation Platform" },
-    { property: "og:description", content: "WhatsApp Business API, automation, CRM and AI in one operating platform." },
+    { title: "Hatflow – WhatsApp Business API, Automation, CRM & AI Platform" },
+    { name: "description", content: "Hatflow is an official WhatsApp Business API platform with no-code automation, chatbot flows, built-in CRM, team inbox, AI agent and 28 integrations like Shopify, Razorpay and HubSpot." },
+    { name: "keywords", content: "WhatsApp Business API, WhatsApp automation, WhatsApp CRM, WhatsApp chatbot, WhatsApp marketing India, team inbox, broadcast messaging, Shopify WhatsApp, Hatflow" },
+    { property: "og:title", content: "Hatflow – Turn WhatsApp Into Your Business Operating System" },
+    { property: "og:description", content: "Official WhatsApp Business API with no-code automation, CRM, team inbox and AI agent. Plans from ₹799/month." },
     { property: "og:type", content: "website" },
+    { property: "og:url", content: "/" },
+    { property: "og:site_name", content: "Hatflow" },
     { name: "twitter:card", content: "summary_large_image" },
+    { name: "twitter:title", content: "Hatflow – WhatsApp Business Automation Platform" },
+    { name: "twitter:description", content: "WhatsApp Business API, automation, CRM and AI in one platform." },
+  ],
+  links: [{ rel: "canonical", href: "/" }],
+  scripts: [
+    { type: "application/ld+json", children: JSON.stringify({ "@context": "https://schema.org", "@type": "SoftwareApplication", name: "Hatflow", applicationCategory: "BusinessApplication", operatingSystem: "Web", description: "WhatsApp Business API platform with automation, CRM, team inbox and AI agent.", publisher: { "@type": "Organization", name: "UnknownHat Agency", url: "https://unknowhat.com" }, offers: [["Starter","799"],["Growth","1499"],["Enterprise","1999"]].map(([name,price])=>({ "@type": "Offer", name, price, priceCurrency: "INR" })) }) },
+    { type: "application/ld+json", children: JSON.stringify({ "@context": "https://schema.org", "@type": "FAQPage", mainEntity: faqs.map(([q,a])=>({ "@type": "Question", name: q, acceptedAnswer: { "@type": "Answer", text: a } })) }) },
   ]}), component: Index,
 });
 
