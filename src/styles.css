@@ -275,3 +275,12 @@ footer .footer-main{display:flex;grid-template-columns:none}.footer-legal{displa
 .final-cta>div:last-child>button:last-child{color:oklch(.978 .012 91);border-color:oklch(1 0 0/.55);background:oklch(1 0 0/.06)}
 .final-cta>div:last-child>button:last-child:hover{background:oklch(1 0 0/.12)}
 @media(max-width:700px){.partnership-heading{padding-top:68px;padding-bottom:12px}.partnership-heading>img{height:64px;transform:scale(2.35);margin-bottom:26px}.partnership{grid-template-columns:minmax(0,1fr);padding-top:20px;padding-bottom:68px;gap:32px}.founder-wrap,.partner-copy{width:100%;max-width:none;justify-self:stretch}.partner-copy{grid-column:1}.final-cta>div:last-child>button{width:100%}}
+/* Premium icon system */
+.section svg.lucide,.hero svg.lucide,.site-nav svg.lucide{stroke-width:1.6}
+.feature-icon,.logic-step>div,.logic-branches span,.case-head svg,.industry-grid article>svg{position:relative;background:linear-gradient(145deg,color-mix(in oklab,var(--primary) 16%,var(--card)),color-mix(in oklab,oklch(.72 .12 200) 12%,var(--card)));color:var(--primary);border:1px solid color-mix(in oklab,var(--primary) 22%,transparent);box-shadow:inset 0 1px 0 oklch(1 0 0/.7),0 8px 20px -10px color-mix(in oklab,var(--primary) 55%,transparent);transition:transform .3s,box-shadow .3s,background .3s}
+.feature-card:hover .feature-icon,.logic-step:hover>div,.case-card:hover .case-head svg,.industry-grid article:hover>svg{transform:translateY(-2px) rotate(-4deg);background:linear-gradient(145deg,var(--primary),oklch(.7 .13 200));color:var(--primary-foreground);box-shadow:0 14px 28px -10px color-mix(in oklab,var(--primary) 70%,transparent)}
+.feature-icon{border-radius:14px}.feature-icon svg{width:22px;height:22px}
+.industry-grid article>svg{padding:9px;width:42px;height:42px;border-radius:12px}
+.logic-step>div{border-radius:15px}
+.ai-section svg.lucide,.automation-section svg.lucide{stroke-width:1.7}
+.node>svg,.ai-chat-head>div{box-shadow:0 0 0 1px oklch(1 0 0/.08),0 0 24px -6px color-mix(in oklab,var(--primary) 70%,transparent)}
