@@ -16,7 +16,7 @@ export const Route = createFileRoute("/refund-return-policy")({
 
 function RefundPagePage() {
   return (
-    <LegalPage title="Return & Refund Policy">
+    <LegalPage title="Return & Refund Policy" updated="September 25, 2026">
       <p>
         At <strong>Hatflow</strong>, we provide digital products, software, subscriptions, WhatsApp API
         services, automation tools, and other technology-based services. Due to the digital and
