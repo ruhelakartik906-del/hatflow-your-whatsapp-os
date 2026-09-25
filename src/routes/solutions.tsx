@@ -8,7 +8,10 @@ export const Route = createFileRoute("/solutions")({
   head: () => ({ meta: [
     { title: t }, { name: "description", content: d },
     { property: "og:title", content: t }, { property: "og:description", content: d },
-    { property: "og:type", content: "website" }, { name: "twitter:card", content: "summary" },
+    { property: "og:type", content: "website" },
+    { property: "og:image", content: "https://hatflow.in/hatflow-social-preview.png" },
+    { name: "twitter:card", content: "summary_large_image" },
+    { name: "twitter:image", content: "https://hatflow.in/hatflow-social-preview.png" },
   ]}),
   component: () => <InfoPage eyebrow="SOLUTIONS" title="WhatsApp Solutions for Every Type of Business." intro="Practical business ideas you can run on Hatflow using the WhatsApp API, automation and CRM — each one starts with a customer trigger and ends with a real outcome." sections={sections} />,
 });
