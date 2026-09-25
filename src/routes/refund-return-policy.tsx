@@ -9,7 +9,9 @@ export const Route = createFileRoute("/refund-return-policy")({
     { property: "og:title", content: "Return & Refund Policy | Hatflow" },
     { property: "og:description", content: "Digital products and subscriptions are non-refundable. Read how Hatflow handles cancellations, plan changes, service issues and payment errors." },
     { property: "og:type", content: "website" },
-    { name: "twitter:card", content: "summary" },
+    { property: "og:image", content: "https://hatflow.in/__l5e/assets-v1/a28b6960-bbad-4edc-b2d0-18ff7141082b/hatflow-social-preview.png" },
+    { name: "twitter:card", content: "summary_large_image" },
+    { name: "twitter:image", content: "https://hatflow.in/__l5e/assets-v1/a28b6960-bbad-4edc-b2d0-18ff7141082b/hatflow-social-preview.png" },
   ]}),
   component: RefundPagePage,
 });
