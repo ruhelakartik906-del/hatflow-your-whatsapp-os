@@ -7,8 +7,8 @@ import hatflowLogo from "@/assets/hatflow-logo.webp.asset.json";
 import unknownHatLogo from "@/assets/unknownhat-logo.png.asset.json";
 import founderPhoto from "@/assets/unknownhat-founder.png.asset.json";
 
-const PAGE_LINKS = [["Product", "/features"], ["Solutions", "/solutions"], ["Integrations", "/integrations"], ["CRM", "/crm"]] as const;
-const SECTION_LINKS = [["Automations", "automations"], ["Pricing", "pricing"], ["Resources", "faq"]] as const;
+const PAGE_LINKS = [["Solutions", "/solutions"], ["Integrations", "/integrations"], ["CRM", "/crm"]] as const;
+const SECTION_LINKS = [["Pricing", "pricing"]] as const;
 
 export function SiteHeader() {
   const [menuOpen, setMenuOpen] = useState(false);

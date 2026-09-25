@@ -39,3 +39,8 @@
 - [x] Rebalance the two-column layout
 - [x] Scale and shorten the workflow canvas
 - [x] Verify desktop and mobile layouts
+
+## Slimmer menu
+
+- [x] Remove Product, Automations and Resources from the menu
+- [x] Verify links on desktop and mobile
