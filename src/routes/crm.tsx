@@ -9,9 +9,9 @@ export const Route = createFileRoute("/crm")({
     { title: t }, { name: "description", content: d },
     { property: "og:title", content: t }, { property: "og:description", content: d },
     { property: "og:type", content: "website" },
-    { property: "og:image", content: "https://hatflow.in/__l5e/assets-v1/a28b6960-bbad-4edc-b2d0-18ff7141082b/hatflow-social-preview.png" },
+    { property: "og:image", content: "https://hatflow.in/hatflow-social-preview.png" },
     { name: "twitter:card", content: "summary_large_image" },
-    { name: "twitter:image", content: "https://hatflow.in/__l5e/assets-v1/a28b6960-bbad-4edc-b2d0-18ff7141082b/hatflow-social-preview.png" },
+    { name: "twitter:image", content: "https://hatflow.in/hatflow-social-preview.png" },
   ]}),
   component: () => <InfoPage eyebrow="CRM & LEAD MANAGEMENT" title="Every Customer Conversation. One Customer Profile." intro="Give your team the complete context behind every lead, message, order and follow-up — directly next to the WhatsApp chat." sections={sections} />,
 });

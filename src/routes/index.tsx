@@ -15,7 +15,6 @@ import {
 
 import { Button } from "@/components/ui/button";
 import { PartnershipSection, SiteFooter } from "@/components/site-sections";
-import unknownHatLogo from "@/assets/unknownhat-logo.png.asset.json";
 
 const WHATSAPP_URL="https://wa.me/917055481738?text=Hello%2C%20UnknownHat%20Team!";
 
@@ -29,14 +28,14 @@ export const Route = createFileRoute("/")({
     { property: "og:type", content: "website" },
     { property: "og:url", content: "/" },
     { property: "og:site_name", content: "Hatflow" },
-    { property: "og:image", content: "https://hatflow.in/__l5e/assets-v1/a28b6960-bbad-4edc-b2d0-18ff7141082b/hatflow-social-preview.png" },
+    { property: "og:image", content: "https://hatflow.in/hatflow-social-preview.png" },
     { property: "og:image:width", content: "1200" },
     { property: "og:image:height", content: "630" },
     { property: "og:image:alt", content: "Hatflow — WhatsApp Business API and Automation Platform" },
     { name: "twitter:card", content: "summary_large_image" },
     { name: "twitter:title", content: "Hatflow – WhatsApp Business Automation Platform" },
     { name: "twitter:description", content: "WhatsApp Business API, automation, CRM and AI in one platform." },
-    { name: "twitter:image", content: "https://hatflow.in/__l5e/assets-v1/a28b6960-bbad-4edc-b2d0-18ff7141082b/hatflow-social-preview.png" },
+    { name: "twitter:image", content: "https://hatflow.in/hatflow-social-preview.png" },
     { name: "twitter:image:alt", content: "Hatflow — WhatsApp Business API and Automation Platform" },
   ],
   links: [{ rel: "canonical", href: "/" }],
@@ -195,7 +194,7 @@ function Index(){
   const [annual,setAnnual]=useState(false); const [inquiry,setInquiry]=useState<InquiryKind|null>(null); const plans=annual?planData.yearly:planData.monthly;
   const closeInquiry=()=>setInquiry(null);
   return <main className="overflow-hidden bg-background text-foreground">
-    <section className="hero hero-centered" id="top"><div className="hero-grid"/><div className="hero-copy"><div className="brand-kicker"><MessageCircle/>WHATSAPP BUSINESS AUTOMATION PLATFORM</div><h1>Turn WhatsApp Into<br/>Your <span>Business Operating System.</span></h1><p>Connect WhatsApp, manage conversations, capture leads, automate customer journeys and connect your business tools — all from one platform.</p><div className="hero-actions"><Button size="lg" asChild><a href="https://app.hatflow.in/signup">Get Started <ArrowRight/></a></Button><Button variant="outline" size="lg" onClick={()=>window.open(WHATSAPP_URL,"_blank","noopener")}>Talk to an Expert</Button></div><div className="trust-row">{["Official WhatsApp API","No-Code Automation","AI-Powered Conversations","Built-in CRM","Team Inbox"].map(x=><span key={x}><Check/>{x}</span>)}</div><a className="powered-by" href="https://unknowhat.com" target="_blank" rel="noreferrer"><img src={unknownHatLogo.url} alt="UnknownHat Agency"/><span>Powered by <b>UnknownHat Agency</b></span></a></div></section>
+    <section className="hero hero-centered" id="top"><div className="hero-grid"/><div className="hero-copy"><div className="brand-kicker"><MessageCircle/>WHATSAPP BUSINESS AUTOMATION PLATFORM</div><h1>Turn WhatsApp Into<br/>Your <span>Business Operating System.</span></h1><p>Connect WhatsApp, manage conversations, capture leads, automate customer journeys and connect your business tools — all from one platform.</p><div className="hero-actions"><Button size="lg" asChild><a href="https://app.hatflow.in/signup">Get Started <ArrowRight/></a></Button><Button variant="outline" size="lg" onClick={()=>window.open(WHATSAPP_URL,"_blank","noopener")}>Talk to an Expert</Button></div><div className="trust-row">{["Official WhatsApp API","No-Code Automation","AI-Powered Conversations","Built-in CRM","Team Inbox"].map(x=><span key={x}><Check/>{x}</span>)}</div><a className="powered-by" href="https://unknowhat.com" target="_blank" rel="noreferrer"><img src="/unknownhat-logo.png" alt="UnknownHat Agency"/><span>Powered by <b>UnknownHat Agency</b></span></a></div></section>
 
     <section className="logic-section section" id="how-it-works"><SectionTitle eyebrow="HOW HATFLOW WORKS" title={<>One Message In.<br/><span className="gradient-text">The Right Business Action Out.</span></>} copy="Hatflow connects every customer message to the right automation, system and next step."/><div className="logic-map reveal reveal-scale"><div className="logic-main">{([[MessageCircle,"Customer Message"],[Zap,"Hatflow"],[Bot,"AI / Automation"],[Braces,"CRM / Integration"],[Rocket,"Business Action"]] as const).map(([Icon,label],i)=><div className="logic-step" key={label}><div><Icon size={21}/></div><span>{label}</span>{i<4&&<ArrowRight/>}</div>)}</div><div className="logic-branches">{([[Target,"Create Lead"],[ShoppingBag,"Send Product"],[PackageCheck,"Track Order"],[RefreshCw,"Recover Cart"],[Clock3,"Schedule Follow-up"],[UsersRound,"Assign Agent"]] as const).map(([Icon,label])=><div key={label}><span><Icon size={17}/></span>{label}</div>)}</div></div></section>
 
