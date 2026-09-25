@@ -346,6 +346,4 @@ html{scroll-behavior:smooth;text-rendering:optimizeLegibility;-webkit-font-smoot
  .info-cta{padding:52px 18px;border-radius:20px}
  .legal-page article p,.legal-page li{font-size:16px;line-height:1.7}
 }
-@media(max-width:700px){.logic-step svg.lucide-arrow-right,.logic-main>svg{transform:rotate(90deg)}.feature-preview span,.float-card span,.float-card b{font-size:11px}}
-.footer-brand .footer-logo{height:68px;width:auto;max-width:none;border-radius:0}
-@media(max-width:700px){.footer-brand .footer-logo{height:56px}}
+ @media(max-width:700px){.logic-step svg.lucide-arrow-right,.logic-main>svg{transform:rotate(90deg)}.feature-preview span,.float-card span,.float-card b{font-size:11px}}
