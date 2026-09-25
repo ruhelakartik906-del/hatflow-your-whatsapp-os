@@ -142,13 +142,20 @@ function RootComponent() {
       els.forEach((el) => io.observe(el));
       return io;
     };
-    let io = observe();
-    const unsub = router.subscribe("onResolved", () => {
-      io?.disconnect();
-      io = observe();
-    });
+    let io: IntersectionObserver | undefined;
+    let t: ReturnType<typeof setTimeout>;
+    const schedule = () => {
+      clearTimeout(t);
+      t = setTimeout(() => {
+        io?.disconnect();
+        io = observe();
+      }, 150);
+    };
+    schedule();
+    const unsub = router.subscribe("onResolved", schedule);
     return () => {
       unsub();
+      clearTimeout(t);
       io?.disconnect();
     };
   }, [router]);
