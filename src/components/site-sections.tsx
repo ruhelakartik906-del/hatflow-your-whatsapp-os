@@ -7,11 +7,13 @@ import hatflowLogo from "@/assets/hatflow-logo.webp.asset.json";
 import unknownHatLogo from "@/assets/unknownhat-logo.png.asset.json";
 import founderPhoto from "@/assets/unknownhat-founder.png.asset.json";
 
-const NAV_LINKS = [["Product", "product"], ["Solutions", "solutions"], ["Integrations", "integrations"], ["Automations", "automations"], ["Pricing", "pricing"], ["Resources", "faq"]] as const;
+const PAGE_LINKS = [["Product", "/features"], ["Solutions", "/solutions"], ["Integrations", "/integrations"], ["CRM", "/crm"]] as const;
+const SECTION_LINKS = [["Automations", "automations"], ["Pricing", "pricing"], ["Resources", "faq"]] as const;
 
 export function SiteHeader() {
   const [menuOpen, setMenuOpen] = useState(false);
-  return <header className="site-nav"><Link to="/" hash="top" className="nav-brand" aria-label="HATFLOW home"><img src={hatflowLogo.url} alt="HATFLOW" className="h-10 w-auto object-contain" /><span>by UnknownHat Agency</span></Link><nav className="desktop-nav">{NAV_LINKS.map(([label, id]) => <Link key={id} to="/" hash={id}>{label}</Link>)}</nav><div className="nav-actions"><a href="https://app.hatflow.in/login" className="login-link">Login</a><Button size="sm" asChild><a href="https://app.hatflow.in/signup">Get Started <ArrowRight /></a></Button></div><Button variant="ghost" size="icon" className="menu-button" aria-label="Toggle menu" onClick={() => setMenuOpen(!menuOpen)}>{menuOpen ? <X /> : <Menu />}</Button>{menuOpen && <div className="mobile-nav">{NAV_LINKS.map(([label, id]) => <Link key={id} to="/" hash={id} onClick={() => setMenuOpen(false)}>{label}</Link>)}<Button asChild><a href="https://app.hatflow.in/signup" onClick={() => setMenuOpen(false)}>Get Started <ArrowRight /></a></Button></div>}</header>;
+  const navLinks = <>{PAGE_LINKS.map(([label, to]) => <Link key={to} to={to}>{label}</Link>)}{SECTION_LINKS.map(([label, hash]) => <Link key={hash} to="/" hash={hash}>{label}</Link>)}</>;
+  return <header className="site-nav"><Link to="/" hash="top" className="nav-brand" aria-label="HATFLOW home"><img src={hatflowLogo.url} alt="HATFLOW" className="h-10 w-auto object-contain" /><span>by UnknownHat Agency</span></Link><nav className="desktop-nav">{navLinks}</nav><div className="nav-actions"><a href="https://app.hatflow.in/login" className="login-link">Login</a><Button size="sm" asChild><a href="https://app.hatflow.in/signup">Get Started <ArrowRight /></a></Button></div><Button variant="ghost" size="icon" className="menu-button" aria-label="Toggle menu" onClick={() => setMenuOpen(!menuOpen)}>{menuOpen ? <X /> : <Menu />}</Button>{menuOpen && <div className="mobile-nav" onClick={() => setMenuOpen(false)}>{navLinks}<Button asChild><a href="https://app.hatflow.in/signup">Get Started <ArrowRight /></a></Button></div>}</header>;
 }
 
 export function PartnershipSection() {
