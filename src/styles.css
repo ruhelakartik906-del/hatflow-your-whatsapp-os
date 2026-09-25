@@ -308,3 +308,40 @@ footer .footer-main{display:flex;grid-template-columns:none}.footer-legal{displa
 a,button{-webkit-tap-highlight-color:transparent}
 :focus-visible{outline:2px solid var(--primary);outline-offset:3px;border-radius:8px}
 html{scroll-behavior:smooth;text-rendering:optimizeLegibility;-webkit-font-smoothing:antialiased}
+/* Mobile & usability pass */
+@media(max-width:700px){
+ html{-webkit-text-size-adjust:100%}
+ .site-nav{top:10px;height:58px;width:calc(100% - 20px);border-radius:16px;padding:0 8px 0 16px}
+ .menu-button{width:44px;height:44px}
+ .mobile-nav a{min-height:48px;display:flex;align-items:center;font-size:16px}
+ .nav-brand span{font-size:10px}
+ .hero.hero-centered{padding:112px 18px 64px}
+ .hero-centered h1{font-size:clamp(34px,10vw,42px);line-height:1.06}
+ .hero-centered p{font-size:16px}
+ .hero-actions a,.hero-actions button{min-height:52px}
+ .trust-row{gap:8px 14px;justify-content:center}.trust-row span{font-size:12px}
+ .section{padding-left:18px;padding-right:18px}
+ .section-heading h2{font-size:clamp(28px,8.2vw,36px);line-height:1.12}
+ .section-heading p{font-size:15px}
+ .logic-main{min-width:0;flex-direction:column;align-items:stretch;gap:10px}
+ .logic-main>svg,.logic-main>.lucide-arrow-right{transform:rotate(90deg);align-self:center}
+ .logic-step{width:100%}
+ .logic-branches{min-width:0;grid-template-columns:repeat(2,minmax(0,1fr))}
+ .logic-branches>div{font-size:12px;padding:14px 8px}
+ .feature-card a,.case-card a{min-height:44px;display:inline-flex;align-items:center}
+ .feature-card{padding:22px}
+ .float-card,.feature-number{font-size:11px}
+ .pricing-toggle button,[aria-label="Toggle yearly billing"]{min-width:48px;min-height:28px}
+ .faq-section summary,.faq-item button{min-height:52px;font-size:15px}
+ .founder-caption span,.founder-caption b{font-size:12px}
+ footer .footer-legal{flex-wrap:wrap;gap:4px 18px}
+ footer .footer-legal a{font-size:14px;min-height:40px;display:inline-flex;align-items:center}
+ footer .footer-bottom span,footer p,footer .footer-brand span{font-size:13px}
+ .floating-contact{right:14px;bottom:14px;width:54px;height:54px}
+ .form-modal>div,.form-modal [role=dialog]{max-height:calc(100dvh - 24px);overflow-y:auto}
+ .form-modal input,.form-modal select,.form-modal textarea{font-size:16px;min-height:46px}
+ .info-hero h1{font-size:clamp(32px,9vw,40px)}
+ .info-actions a{width:100%;min-height:50px}
+ .info-cta{padding:52px 18px;border-radius:20px}
+ .legal-page article p,.legal-page li{font-size:16px;line-height:1.7}
+}
