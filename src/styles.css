@@ -314,7 +314,8 @@ html{scroll-behavior:smooth;text-rendering:optimizeLegibility;-webkit-font-smoot
  .site-nav{top:10px;height:58px;width:calc(100% - 20px);border-radius:16px;padding:0 8px 0 16px}
  .menu-button{width:44px;height:44px}
  .mobile-nav a{min-height:48px;display:flex;align-items:center;font-size:16px}
- .nav-brand span{font-size:10px}
+  .nav-brand span{font-size:10px}
+  .nav-brand img{height:36px}
  .hero.hero-centered{padding:112px 18px 64px}
  .hero-centered h1{font-size:clamp(34px,10vw,42px);line-height:1.06}
  .hero-centered p{font-size:16px}
