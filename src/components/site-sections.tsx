@@ -12,7 +12,8 @@ const SECTION_LINKS = [["Pricing", "pricing"]] as const;
 
 export function SiteHeader() {
   const [menuOpen, setMenuOpen] = useState(false);
-  const navLinks = <>{PAGE_LINKS.map(([label, to]) => <Link key={to} to={to}>{label}</Link>)}{SECTION_LINKS.map(([label, hash]) => <Link key={hash} to="/" hash={hash}>{label}</Link>)}</>;
+  const goHome = (e: React.MouseEvent) => { if (window.location.pathname === "/") { e.preventDefault(); window.scrollTo({ top: 0, behavior: "smooth" }); } };
+  const navLinks = <><Link key="home" to="/" hash="top" onClick={goHome}>Home</Link>{PAGE_LINKS.map(([label, to]) => <Link key={to} to={to}>{label}</Link>)}{SECTION_LINKS.map(([label, hash]) => <Link key={hash} to="/" hash={hash}>{label}</Link>)}</>;
   return <header className="site-nav"><Link to="/" hash="top" className="nav-brand" aria-label="HATFLOW home"><img src={hatflowLogo.url} alt="HATFLOW" className="h-10 w-auto object-contain" /><span>by UnknownHat Agency</span></Link><nav className="desktop-nav">{navLinks}</nav><div className="nav-actions"><a href="https://app.hatflow.in/login" className="login-link">Login</a><Button size="sm" asChild><a href="https://app.hatflow.in/signup">Get Started <ArrowRight /></a></Button></div><Button variant="ghost" size="icon" className="menu-button" aria-label="Toggle menu" onClick={() => setMenuOpen(!menuOpen)}>{menuOpen ? <X /> : <Menu />}</Button>{menuOpen && <div className="mobile-nav" onClick={() => setMenuOpen(false)}>{navLinks}<Button asChild><a href="https://app.hatflow.in/signup">Get Started <ArrowRight /></a></Button></div>}</header>;
 }
 
