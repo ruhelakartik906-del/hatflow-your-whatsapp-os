@@ -1,16 +1,56 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { LegalPage } from "@/components/legal-page";
+import { WHATSAPP_URL } from "@/components/info-page";
 
 export const Route = createFileRoute("/support")({
-  head: () => ({ meta: [
-    { title: "Support | HATFLOW" },
-    { name: "description", content: "Get help with your Hatflow account, WhatsApp API setup, billing, integrations and automations." },
-    { property: "og:title", content: "Support | HATFLOW" },
-    { property: "og:description", content: "Get help with your Hatflow account, WhatsApp API setup, billing, integrations and automations." },
-    { property: "og:type", content: "website" },
-    { name: "twitter:card", content: "summary" },
-  ]}),
-  component: SupportPagePage,
+  head: () => ({
+    meta: [
+      { title: "Support — Hatflow" },
+      { name: "description", content: "Get help with your Hatflow account, billing, WhatsApp integration, automation, and technical queries." },
+      { property: "og:title", content: "Support — Hatflow" },
+      { property: "og:description", content: "Get help with your Hatflow account, billing, WhatsApp integration, automation, and technical queries." },
+    ],
+    links: [{ rel: "canonical", href: "/support" }],
+  }),
+  component: SupportPage,
 });
 
-function SupportPagePage() { return <LegalPage title="Support"><h2>How can we help?</h2><p>The Hatflow team, powered by UnknownHat Agency, helps you with account setup, WhatsApp Business API onboarding, template approvals, chatbot flows, integrations and billing.</p><a className="legal-contact" href="https://wa.me/917055481738?text=Hello%2C%20UnknownHat%20Team!" target="_blank" rel="noreferrer">Chat with us on WhatsApp: +91 70554 81738</a><h2>What we support</h2><ul><li>WhatsApp Business API connection and number setup</li><li>Message template creation and approval guidance</li><li>Chatbot, flow builder and automation questions</li><li>Integrations such as Shopify, WooCommerce, Razorpay, HubSpot and Google Sheets</li><li>Plans, invoices, upgrades and renewals</li><li>Team inbox, CRM and analytics usage</li></ul><h2>Support by plan</h2><p>Starter plans include email support. Growth and Enterprise plans include priority support.</p><h2>Before you contact us</h2><p>Please share your registered email, business name and a short description or screenshot of the issue. Never share passwords, OTPs or payment card details with anyone, including our team.</p><h2>Account access</h2><p>Log in at app.hatflow.in/login. New users can create an account at app.hatflow.in/signup.</p></LegalPage>; }
+function SupportPage() {
+  return (
+    <LegalPage title="Hatflow Support" updated="September 25, 2026">
+      <p>Need help with Hatflow? Our support team is available to assist you with account, billing, technical, API, WhatsApp integration, automation, and other service-related queries.</p>
+
+      <h2>How Can We Help?</h2>
+      <p>You can contact us for assistance with:</p>
+      <ul>
+        <li>Account and login issues</li>
+        <li>Subscription and billing queries</li>
+        <li>WhatsApp API setup and integration</li>
+        <li>Automation and workflow issues</li>
+        <li>API and technical problems</li>
+        <li>Account configuration</li>
+        <li>Service-related questions</li>
+        <li>General Hatflow support</li>
+      </ul>
+
+      <h2>Contact Support</h2>
+      <p><strong>Email:</strong> officialhatflow@gmail.com<br /><strong>Support Number:</strong> +91 7055481738<br /><strong>Website:</strong> https://hatflow.in</p>
+      <p><a href={WHATSAPP_URL} target="_blank" rel="noreferrer">Chat with us on WhatsApp →</a></p>
+
+      <h2>Before Contacting Support</h2>
+      <p>For faster assistance, please include your <strong>registered email address, account details, issue description, screenshots, and relevant error messages</strong> whenever applicable.</p>
+      <p>Do not share your password, OTP, API secret, access token, or other confidential credentials with anyone claiming to be Hatflow Support.</p>
+
+      <h2>Technical Support</h2>
+      <p>For technical or integration-related issues, our team may request additional information such as error screenshots, workflow details, API responses, or configuration information necessary to investigate the issue.</p>
+      <p>Hatflow may require reasonable time to investigate issues involving third-party services, APIs, Meta, WhatsApp, payment gateways, hosting providers, or other external platforms.</p>
+
+      <h2>Payment &amp; Refund Support</h2>
+      <p>For payment-related concerns, contact us with your transaction details.</p>
+      <p>Please note that Hatflow follows its <strong>Return &amp; Refund Policy</strong>, under which purchases are generally non-refundable except where required by applicable law or specifically approved by Hatflow.</p>
+
+      <h2>Customer Support Contact</h2>
+      <p><strong>Hatflow</strong><br />Email: officialhatflow@gmail.com<br />Support: +91 7055481738<br />Website: https://hatflow.in</p>
+    </LegalPage>
+  );
+}
