@@ -119,6 +119,39 @@ function RootShell({ children }: { children: ReactNode }) {
 
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
+  const router = useRouter();
+
+  useEffect(() => {
+    const observe = () => {
+      const els = document.querySelectorAll<HTMLElement>(".reveal:not(.reveal-in)");
+      if (!("IntersectionObserver" in window)) {
+        els.forEach((el) => el.classList.add("reveal-in"));
+        return;
+      }
+      const io = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("reveal-in");
+              io.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.12, rootMargin: "0px 0px -8% 0px" }
+      );
+      els.forEach((el) => io.observe(el));
+      return io;
+    };
+    let io = observe();
+    const unsub = router.subscribe("onResolved", () => {
+      io?.disconnect();
+      io = observe();
+    });
+    return () => {
+      unsub();
+      io?.disconnect();
+    };
+  }, [router]);
 
   return (
     <QueryClientProvider client={queryClient}>
