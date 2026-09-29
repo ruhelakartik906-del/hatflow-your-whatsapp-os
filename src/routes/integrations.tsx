@@ -1,8 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { InfoPage } from "@/components/info-page";
 
-const t = "Hatflow Integrations — Shopify, WooCommerce, Razorpay, HubSpot & More";
-const d = "Connect WhatsApp with Shopify, WooCommerce, Razorpay, Cashfree, Stripe, HubSpot, Zoho CRM, Google Sheets, OpenAI, Gemini, IndiaMART and more with Hatflow.";
+const t = "WhatsApp Integrations for Shopify, CRM & More | Hatflow";
+const d = "Explore Hatflow's WhatsApp integrations for Shopify, WooCommerce, HubSpot, Zoho CRM, Razorpay, Google Sheets, Calendly and other business tools.";
 
 export const Route = createFileRoute("/integrations")({
   head: () => ({ meta: [
@@ -13,7 +13,7 @@ export const Route = createFileRoute("/integrations")({
     { name: "twitter:card", content: "summary_large_image" },
     { name: "twitter:image", content: "https://hatflow.in/hatflow-social-preview.png" },
   ]}),
-  component: () => <InfoPage eyebrow="28 INTEGRATIONS" title="Connect WhatsApp to the Tools You Already Use." intro="Hatflow links your WhatsApp conversations with commerce, CRM, payments, AI, automation and communication tools — so data moves automatically and your team works from one place." sections={sections} />,
+  component: () => <InfoPage eyebrow="28 INTEGRATIONS" title="Connect WhatsApp to the Tools You Already Use." intro="Use an order event to send a WhatsApp update, pass a new enquiry into your CRM or include a payment link in a customer conversation. Explore Hatflow's supported commerce, CRM, payment and automation connections." sections={sections} />,
 });
 
 const sections = [

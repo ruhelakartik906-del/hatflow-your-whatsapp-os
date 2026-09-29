@@ -1,8 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { InfoPage } from "@/components/info-page";
 
-const t = "Hatflow Solutions — WhatsApp Automation Ideas by Industry";
-const d = "WhatsApp API, CRM and automation solutions for ecommerce, real estate, education, clinics, travel, D2C brands, agencies and B2B exporters.";
+const t = "WhatsApp Automation Use Cases & Solutions | Hatflow";
+const d = "Explore WhatsApp automation ideas for online stores, real estate, education, clinics and B2B teams, from lead capture to order updates and follow-ups.";
 
 export const Route = createFileRoute("/solutions")({
   head: () => ({ meta: [
@@ -13,7 +13,7 @@ export const Route = createFileRoute("/solutions")({
     { name: "twitter:card", content: "summary_large_image" },
     { name: "twitter:image", content: "https://hatflow.in/hatflow-social-preview.png" },
   ]}),
-  component: () => <InfoPage eyebrow="SOLUTIONS" title="WhatsApp Solutions for Every Type of Business." intro="Practical business ideas you can run on Hatflow using the WhatsApp API, automation and CRM — each one starts with a customer trigger and ends with a real outcome." sections={sections} />,
+  component: () => <InfoPage eyebrow="SOLUTIONS" title="WhatsApp Solutions for Every Type of Business." intro="See how a customer enquiry, order event or booking request can trigger a WhatsApp reply, update a CRM lead or prompt a follow-up. These examples show practical ways to connect Hatflow's API, automation and CRM tools." sections={sections} />,
 });
 
 const sections = [
