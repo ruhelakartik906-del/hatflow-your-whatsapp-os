@@ -44,3 +44,9 @@
 
 - [x] Remove Product, Automations and Resources from the menu
 - [x] Verify links on desktop and mobile
+
+## Content SEO
+
+- [x] Review current search basics and India keyword demand
+- [x] Refine homepage and product-page copy around real Hatflow use cases
+- [x] Keep page titles and descriptions distinct and aligned with page content

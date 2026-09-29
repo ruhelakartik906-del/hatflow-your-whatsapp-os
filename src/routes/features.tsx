@@ -1,8 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { InfoPage } from "@/components/info-page";
 
-const t = "Hatflow Features — WhatsApp API, Inbox, Chatbots & Automation";
-const d = "Explore every Hatflow feature: official WhatsApp Business API, shared team inbox, no-code chatbots, broadcasts, automation, CRM, AI agent and analytics.";
+const t = "WhatsApp Chatbot & Automation Features | Hatflow";
+const d = "Explore Hatflow's WhatsApp chatbot builder, no-code automation, shared team inbox, broadcast campaigns, CRM and AI-assisted customer conversations.";
 
 export const Route = createFileRoute("/features")({
   head: () => ({ meta: [
@@ -13,7 +13,7 @@ export const Route = createFileRoute("/features")({
     { name: "twitter:card", content: "summary_large_image" },
     { name: "twitter:image", content: "https://hatflow.in/hatflow-social-preview.png" },
   ]}),
-  component: () => <InfoPage eyebrow="HATFLOW FEATURES" title="Everything You Need to Run WhatsApp Like a Business System." intro="Hatflow brings the official WhatsApp Business API, a team inbox, no-code automation, CRM and AI into one workspace — so every conversation leads to a clear business action." sections={sections} />,
+  component: () => <InfoPage eyebrow="HATFLOW FEATURES" title="Everything You Need to Run WhatsApp Like a Business System." intro="Create WhatsApp chatbot flows without code, share customer chats across your team and keep leads in a built-in CRM. Hatflow connects the official WhatsApp Business API to the work your business already does." sections={sections} />,
 });
 
 const sections = [
@@ -27,7 +27,7 @@ const sections = [
     { title: "Multi-agent support", copy: "Distribute chats between team members and hand off smoothly between AI and humans.", points: ["Agent roles", "Human takeover", "Assignment rules"] },
     { title: "Quick replies & labels", copy: "Answer faster with saved replies and keep chats organised with tags.", points: ["Saved responses", "Custom tags", "Search & filters"] },
   ]},
-  { eyebrow: "AUTOMATION", title: "No-Code Chatbots & Workflows", blocks: [
+  { eyebrow: "AUTOMATION", title: "Build a WhatsApp Chatbot Without Code", copy: "Start with a customer message, ask a question, then route the next step based on the answer. Use the same flow to update a lead, send an order message or hand a chat to your team.", blocks: [
     { title: "Visual flow builder", copy: "Drag-and-drop triggers, conditions, delays and actions to design complete customer journeys.", points: ["Triggers & conditions", "Ask question & save answers", "Update CRM columns"] },
     { title: "Ready-made templates", copy: "Launch fast with flows for orders, abandoned carts, welcome messages and review requests.", points: ["Shopify order confirmation", "Abandoned cart recovery", "Review requests"] },
     { title: "AI agent", copy: "Let AI answer routine questions, detect intent and trigger connected actions — with human handoff.", points: ["Intent detection", "Order status replies", "Assign human"] },

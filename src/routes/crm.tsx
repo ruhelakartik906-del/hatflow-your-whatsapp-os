@@ -1,8 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { InfoPage } from "@/components/info-page";
 
-const t = "Hatflow CRM — WhatsApp CRM & Lead Management";
-const d = "Hatflow's built-in WhatsApp CRM gives every customer one profile with lead score, source, owner, tags, orders, timeline and follow-ups.";
+const t = "WhatsApp CRM & Lead Management | Hatflow";
+const d = "Manage WhatsApp leads with customer profiles, lead stages, source, owner, tags, order history, conversation timeline and follow-up reminders in Hatflow.";
 
 export const Route = createFileRoute("/crm")({
   head: () => ({ meta: [
@@ -13,7 +13,7 @@ export const Route = createFileRoute("/crm")({
     { name: "twitter:card", content: "summary_large_image" },
     { name: "twitter:image", content: "https://hatflow.in/hatflow-social-preview.png" },
   ]}),
-  component: () => <InfoPage eyebrow="CRM & LEAD MANAGEMENT" title="Every Customer Conversation. One Customer Profile." intro="Give your team the complete context behind every lead, message, order and follow-up — directly next to the WhatsApp chat." sections={sections} />,
+  component: () => <InfoPage eyebrow="CRM & LEAD MANAGEMENT" title="Every Customer Conversation. One Customer Profile." intro="Turn a WhatsApp enquiry into a lead your team can follow. See its source, stage, owner, tags, order details and conversation history alongside the chat, then set the next follow-up." sections={sections} />,
 });
 
 const sections = [
